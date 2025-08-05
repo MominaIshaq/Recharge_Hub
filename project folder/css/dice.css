@@ -1,0 +1,83 @@
+/* Compact Dice Styles */
+.dice-container {
+  width: 70px;
+  height: 70px;
+  perspective: 600px;
+ margin: 20px 0;   /*Space above/below sections */
+}
+
+/* Positioning Helpers */
+.float-right {
+  float: right;
+  margin-left: 20px;
+}
+
+.float-left {
+  float: left;
+  margin-right: 20px;
+}
+
+/* Dice Cube Animation */
+.dice-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateDice 5s infinite linear;
+}
+
+/* Individual Sides */
+.side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dice Images */
+.side img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+/* Colored Faces */
+.front {
+  transform: rotateY(0deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+.back {
+  transform: rotateY(180deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+.right {
+  transform: rotateY(90deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+.top {
+  transform: rotateX(90deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(30px);
+  background-color:rgb(187, 214, 187);
+}
+
+@keyframes rotateDice {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}

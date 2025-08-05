@@ -1,0 +1,85 @@
+
+/* ------------------- Tagline ------------------- */
+/* ------------------- Tagline Slider Container ------------------- */
+.tagline-slider {
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  /* padding: 30px 0; */
+  height: 100px;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+
+/* Gradient Overlays */
+.tagline-slider::before,
+.tagline-slider::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+.tagline-slider::before {
+  left: 0;
+  top: 0;
+}
+.tagline-slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+/* Scroll Animation Track */
+.tagline-track {
+  display: flex;
+  width: calc(300px * 14); /* updated width per item */
+  animation: scrollTagline 40s linear infinite;
+}
+
+
+/* Animation Keyframes */
+@keyframes scrollTagline {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 7));
+  }
+}
+
+/* Individual Tagline Items */
+.tagline-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+width: 340px; /* Adjust as needed */
+  padding: 0 10px; /* optional padding for extra space */
+  white-space: nowrap;
+}
+
+
+.tagline-item span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  /* color: #0093E9; */
+  /* color:   #2c5364; */
+/* color:#0f2027, ; */
+color: #203a43;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive */
+@media screen and (max-width: 720px) {
+  .tagline-item span {
+    font-size: 1rem;
+    width: auto;
+  }
+}
+
+
