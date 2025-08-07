@@ -50,11 +50,28 @@
 
   <!-- headings -->
   <div class="container py-5 page-section">
-    <h2 class="text-center mb-4"> Recharge History</h2>
+    <h2 class="text-center mb-4" style="margin-top: 60px;"> Recharge History</h2>
     <div id="historyContainer" class="row g-3"></div>
   </div>
+    <!--  Feedback Form Box -->
+  <div id="feedbackForm" class="position-fixed bottom-0 end-0 m-4 bg-light border rounded shadow-lg p-3"
+    style="display: none; z-index: 9999; width: 300px">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h5 class="mb-0">We value your feedback</h5>
+      <button class="btn btn-sm btn-outline-dark" id="closeFeedback">
+        ✖
+      </button>
+    </div>
+    <textarea class="form-control mb-2" rows="3" placeholder="Your thoughts..." required></textarea>
+    <input type="text" class="form-control mb-2" placeholder="Phone (optional)" />
+    <button class="btn btn-success w-100" id="submitFeedback">Submit</button>
+
+    <div id="feedbackMessage" class="alert alert-success mt-3 text-center" style="display: none">
+      Your feedback has been submitted!
+    </div>
+  </div>
   <!--  Footer Section -->
-  <footer>
+  <footer style="margin-top: 30%;">
     <div class="footer-left">© 2025 RechargeHub Inc.</div>
     <ul class="footer-right">
       <li><a href="#"><img src="./assets/instagram.png" alt="" height="30px"></a></li>

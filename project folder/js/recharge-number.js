@@ -1,22 +1,12 @@
-//  Account check and redirect logic
-function checkRechargeAccess(res) {
-  const isRegistered = localStorage.getItem("accountCreated") === "true";
 
-  if (!isRegistered) {
-    res.className = "alert alert-danger";
-    res.innerHTML = `
-      <h5>Recharge Blocked</h5>
-      <p>You need to create an account before recharging.</p>
-      <a href="create-account.html" class="btn btn-warning mt-2">Create Account</a>
-    `;
-    res.style.display = "block";
-    return false;
-  }
+// 🔍 Trace any localStorage.setItem calls
+const originalSetItem = localStorage.setItem;
+localStorage.setItem = function (key, value) {
+  console.trace(`localStorage.setItem called: ${key} = ${value}`);
+  originalSetItem.call(localStorage, key, value);
+};
 
-  return true;
-}
-
-//  Optional popup feedback
+// ✅ Optional popup feedback
 function showPopup(title, message, type) {
   const popup = document.createElement("div");
   popup.className = `position-fixed top-50 start-50 translate-middle bg-${type} text-white p-4 rounded shadow-lg text-center`;
@@ -29,7 +19,7 @@ function showPopup(title, message, type) {
   document.body.appendChild(popup);
 }
 
-//  Recharge form submission logic
+// ✅ Recharge form submission logic
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("topupForm");
   const res = document.getElementById("response");
@@ -39,15 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (!checkRechargeAccess(res)) return;
+    // 🔒 Final check before processing
+    const accountStatus = (localStorage.getItem("accountCreated") || "").toLowerCase();
+    console.log("🔍 Account Status at submit:", accountStatus);
+
+    if (accountStatus !== "true") {
+      res.className = "alert alert-danger";
+      res.innerHTML = `
+        <h5>Recharge Blocked</h5>
+        <p>You need to create an account before recharging.</p>
+        <a href="create-account.html" class="btn btn-warning mt-2">Create Account</a>
+      `;
+      res.style.display = "block";
+      return;
+    }
 
     const number = document.getElementById("mobile").value.trim();
     const amount = document.getElementById("amount").value;
     const network = document.getElementById("network").value;
 
-    // ✅ Phone number validation (Pakistani format: starts with 03 and has 11 digits)
+    // ✅ Validate Pakistani mobile number
     const isValidNumber = /^03\d{9}$/.test(number);
-
     if (!isValidNumber) {
       res.className = "alert alert-warning";
       res.innerHTML = `
@@ -66,6 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
     res.style.display = "block";
 
     setTimeout(() => {
+      // 🔒 Re-check account status before finalizing
+      const latestStatus = (localStorage.getItem("accountCreated") || "").toLowerCase();
+      console.log("🔍 Account Status before finalizing:", latestStatus);
+
+      if (latestStatus !== "true") {
+        res.className = "alert alert-danger";
+        res.innerHTML = `
+          <h5>Recharge Cancelled</h5>
+          <p>Your account status changed during processing. Please create an account.</p>
+          <a href="create-account.html" class="btn btn-warning mt-2">Create Account</a>
+        `;
+        res.style.display = "block";
+        return;
+      }
+
       const txnId = Math.floor(Math.random() * 10000000);
       const timestamp = new Date().toLocaleString();
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +15,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/dice.css" />
   <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/offers.css">
   <link rel="stylesheet" href="./css/forms.css" />
   <link rel="stylesheet" href="./css/tagline.css" />
   <link rel="stylesheet" href="./css/cards.css" />
@@ -24,40 +26,31 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <body>
-  <!--  Navbar -->
+  <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#"><img src="./assets/logo2.png" alt="" height="30px" /> RechargeHub</a>
-      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <a class="navbar-brand fw-bold" href="#">
+        <img src="./assets/logo2.png" alt="RechargeHub Logo" height="30px" />
+        RechargeHub
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="offers.html" class="nav-link">Offers</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="Loan.html" class="nav-link">Loan</a>
-          </li>
-          <li class="nav-item">
-            <a href="Rechargehistory.html" class="nav-link">RechargeHistory</a>
-          </li>
-          <li class="nav-item">
-            <a href="create-account.html" class="nav-link">Create account</a>
-          </li>
-<!-- <button id="triggerLogin" class="btn">Login</button> -->
-          
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="offers.html" class="nav-link">Offers</a></li>
+          <li class="nav-item"><a href="loan.html" class="nav-link">Loan</a></li>
+          <li class="nav-item"><a href="Rechargehistory.html" class="nav-link">RechargeHistory</a></li>
+          <li class="nav-item"><a href="create-account.html" class="nav-link">Create Account</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+
   <!-- Hero Section -->
   <section class="hero parallax-hero">
     <h1 id="hero-title">Recharge & Top-Up Instantly</h1>
@@ -65,6 +58,12 @@
     <a href="#recharge" id="hero-btn" class="btn btn-light mt-3 ">Recharge Now</a>
   </section>
 
+  <!-- ✅ Hero Section -->
+  <!-- <section class="hero hero-section">
+    <h1 id="hero-title">Recharge & Top-Up Instantly</h1>
+    <p id="hero-subtitle">All networks. All packages. One place.</p>
+    <button id="hero-btn">Recharge Now</button>
+  </section> -->
 
 
   <!-- tagline -->
@@ -163,7 +162,10 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <h3 class="text-success " style="font-weight: 900;">Prepaid Mobile Load</h3>
         <p>
-          Whether you’re topping up for yourself or helping a friend out late at night  our system gives you quick, hassle-free recharge options across all networks. No need to download apps or wait in queues just a few clicks and you're done. Enjoy secure transactions, instant confirmations, and 24/7 availability. Plus, unlock exclusive cashback offers and emergency loan options when you need them most.
+          Whether you’re topping up for yourself or helping a friend out late at night our system gives you quick,
+          hassle-free recharge options across all networks. No need to download apps or wait in queues just a few clicks
+          and you're done. Enjoy secure transactions, instant confirmations, and 24/7 availability. Plus, unlock
+          exclusive cashback offers and emergency loan options when you need them most.
         </p>
         <ul>
           <li>No need to visit shops</li>
@@ -212,7 +214,7 @@
   </div>
 
   <!--  Recharge Form -->
-  <div class="container" id="recharge">
+  <!-- <div class="container" id="recharge">
     <div class="form-section" data-aos="fade-up"
       style="  background: linear-gradient(45deg, #51816a, #0f9d58);  color: white;">
       <h3 class="mb-4">Recharge Your Number</h3>
@@ -231,6 +233,10 @@
           <option value="50">Rs 50</option>
           <option value="100">Rs 100</option>
           <option value="300">Rs 300</option>
+          <option value="500">Rs 500</option>
+          <option value="1000">Rs 1000</option>
+
+
         </select>
         <button type="submit" class="btn btn-light w-30 " style="margin-left: 40%;">
           Recharge Now
@@ -238,15 +244,43 @@
       </form>
       <div id="response" class="alert mt-3 text-center" style="display: none"></div>
     </div>
+  </div> -->
+
+  <!-- Recharge Form -->
+<div class="container" id="recharge">
+  <div class="form-section" data-aos="fade-up"
+    style="background: linear-gradient(45deg, #51816a, #0f9d58); color: white;">
+    <h3 class="mb-4">Recharge Your Number</h3>
+    <form id="topupForm">
+      <input type="text" id="mobile" class="form-control mb-3" placeholder="Enter Mobile Number (e.g. 03001234567)" required />
+      <select id="network" class="form-select mb-3" required>
+        <option value="">Select Network</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Zong">Zong</option>
+        <option value="Ufone">Ufone</option>
+        <option value="Telenor">Telenor</option>
+      </select>
+      <select id="amount" class="form-select mb-3" required>
+        <option value="">Select Amount</option>
+        <option value="50">Rs 50</option>
+        <option value="100">Rs 100</option>
+        <option value="300">Rs 300</option>
+        <option value="500">Rs 500</option>
+        <option value="1000">Rs 1000</option>
+      </select>
+      <button type="submit" class="btn btn-light w-30" style="margin-left: 40%;">Recharge Now</button>
+    </form>
+    <div id="response" class="alert mt-3 text-center" style="display: none"></div>
   </div>
+</div>
   <br>
   <br>
   <!-- offers section -->
-  <section class="hero-section fade-in" data-aos="zoom-in-up" data-aos-duration="900" data-aos-easing="ease-out-cubic">
-    <h1>Unlock Daily Rewards & Prizes</h1>
-    <p>Recharge, pay bills, or request loans and win big every day!</p>
-    <a href="offers.html" class="btn btn-light mt-3">Explore Offers</a>
-  </section>
+ <section class="hero-section fade-in" data-aos="zoom-in-up" data-aos-duration="900" data-aos-easing="ease-out-cubic">
+  <h1>Unlock Daily Rewards & Prizes</h1>
+  <p>Recharge, pay bills, or request loans and win big every day!</p>
+  <a href="offers.html" class="btn btn-light mt-3">Explore Offers</a>
+</section>
 
   <!-- testimonial -->
   <section class="container py-5 fade-in">
@@ -256,7 +290,8 @@
 
     <div class="row g-3">
       <div class="col-md-6" data-aos="fade-right" data-aos-duration="700">
-        <div class="card p-3 bg-light text-light" style="background: linear-gradient(45deg, #51816a, #0f9d58); color: white; border: none;">
+        <div class="card p-3 bg-light text-light"
+          style="background: linear-gradient(45deg, #51816a, #0f9d58); color: white; border: none;">
           <p class="text-light">“Used this demo at 2am. It worked like magic! Lorem ipsum dolor
             sit amet. Lorem ipsum dolor, sit amet consectetur adipisicing
             elit. Tempora, necessitatibus dolor? At, quidem. Possimus mollitia
@@ -265,7 +300,8 @@
       </div>
 
       <div class="col-md-6" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
-        <div class="card p-3 bg-light text-light" style="background: linear-gradient(45deg, #51816a, #0f9d58); color: white ; border: none;">
+        <div class="card p-3 bg-light text-light"
+          style="background: linear-gradient(45deg, #51816a, #0f9d58); color: white ; border: none;">
           <p class="text-light"> “I love how simple and offline-friendly it feels. Lorem ipsum
             dolor sit amet, consectetur adipisicing elit. Quod, ducimus
             tempore alias molestiae incidunt fugit ullam consequuntur
@@ -394,8 +430,7 @@
     style="display: block; z-index: 9999; width: 90%; max-width: 600px">
     <!-- <h2 class="mb-3"><span style="color:#6baa8c;"></span></h2> -->
 
-    <img src="./assets/offer2.png" alt="Recharge Offer" width="90%" class="img-fluid mb-3"
-      style="max-height: 350px" />
+    <img src="./assets/offer2.png" alt="Recharge Offer" width="90%" class="img-fluid mb-3" style="max-height: 350px" />
 
     <!-- <p class="fs-5 mb-4">
         Low on balance during an emergency? Recharge Rs 300 now and get Rs 50
@@ -403,7 +438,8 @@
         most.
       </p> -->
 
-    <button class="btn btn-dark btn-lg" onclick="document.getElementById('offerNotification').style.display='block'" style="background-color: #6baa8c; border: none; color: white;">
+    <button class="btn btn-dark btn-lg" onclick="document.getElementById('offerNotification').style.display='block'"
+      style="background-color: #6baa8c; border: none; color: white;">
       Awesome!
     </button>
   </div>
@@ -447,12 +483,12 @@
   <script src="./js/card.js"></script>
   <script src="./js/index.js"></script>
   <script src="./js/offers.js"></script>
-  <script src="js/recharge-number.js"></script>
   <script src="./js/create-account.js"></script>
   <script src="./js/index.js"></script>
   <script src="./js/popup.js"></script>
   <script src="./js/feedback.js"></script>
   <script src="./js/herosection.js"></script>
+  <script src="js/recharge-number.js"></script>
 </body>
 
 </html>

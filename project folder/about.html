@@ -53,75 +53,6 @@
       </div>
     </div>
   </nav>
-
-  <!-- Hero Slider -->
-  <!-- <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="./assets/slider5.PNG" alt="Slide 1" style="height: 400px" />
-      </div>
-      <div class="swiper-slide">
-        <img src="./assets/slider1.PNG" alt="Slide 2" style="height: 400px" />
-      </div>
-      <div class="swiper-slide">
-        <img src="./assets/silchange.webp" alt="Slide 3" style="width: 100%; height: 400px" />
-      </div>
-    </div>
-    <div class="swiper-button-next" style="background-color: white; color: black;"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-  <br />
-  <!-- tagline
-   <div class="tagline-slider">
-    <div class="tagline-track">
-      <div class="tagline-item">
-        <span>Recharge Smarter. Live Better.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Secure Payments. Seamless Experience.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Your Connection, Our Mission.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Where Fintech Meets Simplicity.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Powering Mobile Moments, Securely.</span>
-      </div>
-      <div class="tagline-item"><span>Quick. Safe. RechargeHub.</span></div>
-      <div class="tagline-item">
-        <span>Connectivity with a Purpose.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Fast Track Your Mobile Life.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Validation That Protects You.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Recharge Confidence with Every Click.</span>
-      </div>
-
-      Repeat for loop effect
-      <div class="tagline-item">
-        <span>Recharge Smarter. Live Better.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Secure Payments. Seamless Experience.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Your Connection, Our Mission.</span>
-      </div>
-      <div class="tagline-item">
-        <span>Where Fintech Meets Simplicity.</span>
-      </div>
-    </div>
-  </div>
-
-  tagline end
-  <br />
-  <br />  -->
 <!-- About Section -->
 <section id="about-us" class="container">
   <div class="about-content">
@@ -140,7 +71,7 @@
 <div class="about-images">
   <div class="half-circle-wrapper">
     <div class="image-overlay">
-      <img src="./css/images/about-us2.png" alt="About Us Image" class="rect-img" style="width: 100%; height: auto; border-radius: 50%; object-fit: cover;" />
+      <img src="./css/images/about-us2.png" alt="About Us Image" class="rect-img" style="width: 100%; height:auto; border-radius: 10%; object-fit: cover;" />
     </div>
   </div>
 </div>
@@ -192,7 +123,23 @@
       </p>
     </div>
   </div>
-  
+    <!--  Feedback Form Box -->
+  <div id="feedbackForm" class="position-fixed bottom-0 end-0 m-4 bg-light border rounded shadow-lg p-3"
+    style="display: none; z-index: 9999; width: 300px">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h5 class="mb-0">We value your feedback</h5>
+      <button class="btn btn-sm btn-outline-dark" id="closeFeedback">
+        ✖
+      </button>
+    </div>
+    <textarea class="form-control mb-2" rows="3" placeholder="Your thoughts..." required></textarea>
+    <input type="text" class="form-control mb-2" placeholder="Phone (optional)" />
+    <button class="btn btn-success w-100" id="submitFeedback">Submit</button>
+
+    <div id="feedbackMessage" class="alert alert-success mt-3 text-center" style="display: none">
+      Your feedback has been submitted!
+    </div>
+  </div>
   <!-- Footer Section -->
   <footer>
     <div class="footer-left">© 2025 RechargeHub Inc.</div>
@@ -208,6 +155,7 @@
 
   <script src="./js/about.js"></script>
   <script src="./js/slider.js"></script>
+  <script src="./js/feedback.js"></script>
 </body>
 
 </html>
